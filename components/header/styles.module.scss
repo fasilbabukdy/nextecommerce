@@ -1,0 +1,266 @@
+.header {
+	height: 100%;
+	box-shadow: $shadow-1;
+}
+.ad {
+	height: 54px;
+	width: 100%;
+	background-image: url('../../public/images/ad.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.top {
+	background-color: #f8f8f8;
+	border-top: 1px solid #eee;
+	&__container {
+		max-width: 95%;
+		margin: 0 auto;
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__list {
+		display: flex;
+		gap: 1rem;
+		&_item {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			cursor: pointer;
+			position: relative;
+
+			@media (max-width: 670px) {
+				&:nth-of-type(2),
+				&:nth-of-type(3),
+				&:nth-of-type(4) {
+					display: none;
+				}
+			}
+
+			img {
+				width: 28px;
+				height: 28px;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+
+			a {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				&:hover {
+					color: #8f8f8f;
+					svg {
+						fill: #222;
+					}
+				}
+			}
+
+			&:not(:last-of-type) {
+				&::after {
+					content: '';
+					position: absolute;
+					right: -8px;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 1px;
+					height: 1rem;
+					background-color: #ccc;
+				}
+			}
+
+			.flex {
+				display: flex;
+				align-items: center;
+				gap: 0.2rem;
+				svg {
+					transform: scale(1.2);
+					margin-right: 0.2rem;
+				}
+			}
+
+			svg {
+				width: 20px;
+				height: 20px;
+				fill: #ccc;
+			}
+			span {
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+.menu {
+	width: 280px;
+	box-shadow: $shadow-1;
+	position: absolute;
+	z-index: 10;
+	top: 100%;
+	right: 0;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.8rem;
+	border-radius: 0.5rem;
+	cursor: default;
+
+	.button_action {
+		display: flex;
+		width: 100%;
+		gap: 0.5rem;
+	}
+
+	.btn {
+		flex: 1;
+		border: none;
+		padding: 0.2rem 0.5rem;
+		border-radius: 0.4rem;
+		color: $color-primary;
+		background-color: #fff;
+
+		&:hover {
+			background-color: $color-light-gray-2;
+		}
+		&_outline {
+			&_primary {
+				border: 2px solid $color-primary;
+			}
+		}
+
+		&_sm {
+			font-size: 0.8rem;
+			padding: 0.2rem 0.4rem;
+		}
+
+		&_primary {
+			background-color: $color-primary;
+			color: #fff;
+
+			&:hover {
+				background-color: darken($color-primary, 10%);
+				border-color: darken($color-primary, 10%);
+			}
+		}
+	}
+
+	> .flex {
+		gap: 0.5rem;
+		padding-bottom: 0.4rem;
+		border-bottom: 1px solid #e7e7e7;
+		.menu__img {
+			width: 38px;
+			height: 38px;
+		}
+		.col {
+			line-height: 1.2;
+		}
+	}
+
+	h4 {
+		text-align: center;
+	}
+
+	&__list {
+		li {
+			display: block;
+			a {
+				display: block;
+				padding: 0.2rem 0.5rem;
+				border-radius: 0.4rem;
+				transition: all 0.3s ease-out;
+				&:hover {
+					background-color: #e7e7e7;
+				}
+			}
+		}
+	}
+}
+
+.main {
+	position: relative;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	&__container {
+		width: calc(100% - 2rem);
+		padding: 0 1rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	&__brand {
+		flex: 1 1 0;
+		img {
+			width: 200px;
+			object-fit: contain;
+			height: fit-content;
+		}
+	}
+}
+
+.search {
+	flex: 2;
+	display: flex;
+	align-items: center;
+	background-color: #eee;
+	border-radius: 0.3rem;
+	input {
+		height: 40px;
+		width: 100%;
+		padding: 0.5rem 1rem;
+		border: 1px solid #ddd;
+		border-top-left-radius: 0.3rem;
+		border-bottom-left-radius: 0.3rem;
+		&:focus {
+			box-shadow: $shadow-1;
+		}
+	}
+	&__icon {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $color-primary;
+		border-top-right-radius: 0.3rem;
+		border-bottom-right-radius: 0.3rem;
+		color: white;
+	}
+}
+
+.cart {
+	position: relative;
+	border: 1px solid #ddd;
+	border-radius: 0.4rem;
+	padding: 0.3rem;
+	&:hover {
+		svg {
+			fill: $color-primary;
+		}
+	}
+	svg {
+		width: 35px;
+		height: 22px;
+	}
+	&__count {
+		position: absolute;
+		top: -10px;
+		right: 0;
+		background-color: red;
+		color: white;
+		min-width: 22px;
+		height: 22px;
+		text-align: center;
+		padding: 0.2rem;
+		line-height: 1;
+		border-radius: 50%;
+		font-size: 1rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

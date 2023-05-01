@@ -1,0 +1,159 @@
+.footer {
+	padding: 1rem 0;
+	&__container {
+		position: relative;
+		max-width: calc(100% - 2rem);
+		display: grid;
+		padding: 0 1rem;
+		grid-template-areas:
+			'payment'
+			'links'
+			'newsletter'
+			'socials'
+			'copyright';
+
+		margin: 0 auto;
+
+		@media (min-width: 992px) {
+			grid-template-areas:
+				'links socials'
+				'links newsletter'
+				'payment copyright';
+			margin: 0 auto;
+		}
+	}
+	&__links {
+		grid-area: links;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		.list {
+			img {
+				width: 160px;
+				object-fit: contain;
+				height: max-content;
+			}
+			&__heading {
+				font-size: 1rem;
+				text-transform: uppercase;
+				margin-bottom: 0.5rem;
+			}
+			li {
+				a {
+					color: #666;
+					&:hover {
+						color: #333;
+					}
+				}
+			}
+		}
+	}
+
+	&__socials {
+		grid-area: socials;
+		margin-bottom: 1rem;
+		.heading {
+			font-size: 1rem;
+			text-transform: uppercase;
+			margin-bottom: 0.5rem;
+		}
+		section {
+			ul {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				li {
+					font-size: 1.4rem;
+					color: #666;
+					&:hover {
+						color: $color-primary;
+					}
+				}
+			}
+		}
+	}
+
+	&__newsletter {
+		grid-area: newsletter;
+		margin-bottom: 1rem;
+		.heading {
+			font-size: 1rem;
+			text-transform: uppercase;
+			margin-bottom: 0.5rem;
+		}
+
+		.flex {
+			display: flex;
+			align-items: center;
+			margin-bottom: 0.5rem;
+
+			input {
+				height: 40px;
+				padding: 0.3rem 0.5rem;
+				font-size: 1rem;
+				border: 1px solid #ddd;
+				// flex: 1;
+			}
+			.btn {
+				padding: 0.48rem 0.4rem;
+				background-color: $color-primary;
+				color: white;
+				font-size: 1rem;
+				outline: none;
+				display: inline-block;
+				border: 1px solid $color-primary;
+			}
+		}
+		p {
+			font-size: 0.8rem;
+			color: #666;
+			a {
+				display: inline-block;
+				color: $color-primary;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__payment {
+		grid-area: payment;
+		margin-bottom: 1rem;
+		.heading {
+			text-transform: uppercase;
+			margin-bottom: 0.5rem;
+			font-size: 1rem;
+		}
+		.flex {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			img {
+				width: 50px;
+				height: max-content;
+				object-fit: contain;
+			}
+		}
+	}
+
+	&__copyright {
+		grid-area: copyright;
+		section {
+			font-size: 0.9rem;
+			color: #333;
+		}
+		.list {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			&__item {
+				color: #666;
+				font-size: 0.8rem;
+				a {
+					color: #666;
+					font-size: 0.8rem;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
